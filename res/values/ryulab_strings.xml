@@ -18,5 +18,17 @@
      <!-- Title -->
     <string name="ryulab_title">RyuLab</string>
     <string name="ryulab_summary">Find additional settings here!</string>
+    
+    <!-- Extension menu -->
+    <string name="misc_title">Miscellaneous</string>
+    
+    <!-- More menu -->
+    <string name="other_menu_title">Other menu</string>
+    
+
+    <!-- Misc -->
+    <string name="miscellaneous_developer_options_category">Developer options</string>
+    <string name="miscellaneous_app_downgrade_title">Allow application downgrade</string>
+    <string name="miscellaneous_app_downgrade_summary">Allow downgrading system applications, which may result in crashes and data loss</string>
 
 </resources>

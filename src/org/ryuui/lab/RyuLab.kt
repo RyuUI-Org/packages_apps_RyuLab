@@ -17,11 +17,15 @@
 package org.ryuui.lab
 
 import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentActivity;
+import androidx.fragment.app.FragmentTransaction;
 import com.android.internal.logging.nano.MetricsProto
 import com.android.settings.R
 import com.android.settings.SettingsPreferenceFragment
-
-class RyuLab : SettingsPreferenceFragment() {
+class RyuLab : SettingsPreferenceFragment(), View.OnClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,5 +34,19 @@ class RyuLab : SettingsPreferenceFragment() {
 
     override fun getMetricsCategory(): Int {
         return MetricsProto.MetricsEvent.RYUUI
+    }
+
+    override fun onClick(v: View) {
+        var selectedFragment: Fragment? = null
+        val id = view.id
+
+        if (selectedFragment != null && activity != null) {
+            val parentManager = activity?.supportFragmentManager
+            parentManager?.beginTransaction()
+                ?.replace(R.id.main_content, selectedFragment)
+                ?.setTransition(FragmentTransaction.TRANSIT_FRAGMENT_FADE)
+                ?.addToBackStack(null)
+                ?.commit()
+        }
     }
 }

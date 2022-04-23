@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2025 Ryu-UI Org
+<!-- Copyright (C) 2025 OrionOS
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -13,28 +13,20 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-
 <PreferenceScreen
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:settings="http://schemas.android.com/apk/res/com.android.settings"
-    android:title="@string/ryulab_title">
-
-    <com.android.settingslib.widget.TopIntroPreference
-        android:key="ryulab_top_intro"
-        android:title="@string/ryulab_summary"
-        settings:searchable="false"/>
-
+    android:title="@string/misc_title" >         
 
     <PreferenceCategory
-        android:id="@+id/other_menu"
-        android:title="@string/other_menu_title">
-
-        <!-- Misc -->
-        <Preference
-            android:key="misc_category"
-            android:title="@string/misc_title" 
-            android:fragment="org.ryuui.lab.fragments.Miscellaneous"
-            android:icon="@drawable/ic_settings_misc"
-            settings:layout="@layout/interface_card_single_unsummary" />
+        android:key="miscellaneous_developer_options_category"
+        android:title="@string/miscellaneous_developer_options_category">
+        <!-- Allow application downgrade -->
+        <org.ryuui.lab.preferences.GlobalSettingSwitchPreference
+            android:key="pm_downgrade_allowed"
+            android:title="@string/miscellaneous_app_downgrade_title"
+            android:summary="@string/miscellaneous_app_downgrade_summary"
+            android:defaultValue="false" />
+    </PreferenceCategory>
 
 </PreferenceScreen>
