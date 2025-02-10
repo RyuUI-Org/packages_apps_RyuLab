@@ -38,7 +38,7 @@ class RyuLab : SettingsPreferenceFragment(), View.OnClickListener {
 
     override fun onClick(v: View) {
         var selectedFragment: Fragment? = null
-        val id = view.id
+        val id = v.id
 
         if (selectedFragment != null && activity != null) {
             val parentManager = activity?.supportFragmentManager
