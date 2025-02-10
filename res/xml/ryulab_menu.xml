@@ -36,5 +36,5 @@
             android:fragment="org.ryuui.lab.fragments.Miscellaneous"
             android:icon="@drawable/ic_settings_misc"
             settings:layout="@layout/interface_card_single_unsummary" />
-
+    </PreferenceCategory> 
 </PreferenceScreen>
