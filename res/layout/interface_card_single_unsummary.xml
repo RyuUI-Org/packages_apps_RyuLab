@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- Copyright (C) 2025 OrionOS
-     Copyrught (C) 2025 Ryu-UI Org
+<!-- Copyright (C) 2025 Ryu-UI Org
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -14,26 +13,53 @@
      See the License for the specific language governing permissions and
      limitations under the License.
 -->
-<ripple android:color="?android:attr/colorControlHighlight"
-    xmlns:android="http://schemas.android.com/apk/res/android">
-    <item
-        android:id="@android:id/mask">
-        <shape
-            android:shape="rectangle">
-            <solid
-                android:color="#ffffffff" />
-            <corners
-                android:radius="28dp"/>
-        </shape>
-    </item>
-    <item
-        android:id="@android:id/background">
-        <shape
-            android:shape="rectangle">
-            <corners
-                android:radius="28dp"/>
-            <solid
-                android:color="@color/card_single_color" />
-        </shape>
-    </item>
-</ripple>
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:minHeight="64dp"
+    android:layout_marginVertical="8dp"
+    android:layout_marginHorizontal="16dp"
+    android:background="@drawable/card_view_single_unsummary"
+    android:padding="12dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/icon_container"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        app:cardBackgroundColor="?android:colorBackground"
+        app:cardElevation="0dp"
+        app:cardCornerRadius="26dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:importantForAccessibility="no">
+
+        <ImageView
+            android:id="@android:id/icon"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            android:layout_gravity="center"
+            app:tint="?android:textColorPrimary"
+            android:contentDescription="@null" />
+    </androidx.cardview.widget.CardView>
+
+    <TextView
+        android:id="@android:id/title"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="8dp"
+        android:textAppearance="?android:textAppearanceListItem"
+        android:textColor="?android:textColorPrimary"
+        android:maxLines="1"
+        android:ellipsize="end"
+        app:layout_constraintStart_toEndOf="@id/icon_container"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
