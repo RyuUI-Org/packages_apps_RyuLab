@@ -1,5 +1,6 @@
 /*
- * Copyright (C) 2025 Ryu-UI Org
+ * Copyright (C) 2025 OrionOS
+ * Copyright (C) 2025 RyuUI Org
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,36 +15,49 @@
  * limitations under the License.
  */
 
-package org.ryuui.lab.fragments
+ package org.ryuui.lab.fragments;
 
-import android.content.ContentResolver
-import android.content.Context
-import android.content.res.Resources
-import android.os.Bundle
-import android.provider.Settings
-import androidx.preference.Preference
-import androidx.preference.Preference.OnPreferenceChangeListener
-import androidx.preference.PreferenceScreen
-import com.android.internal.logging.nano.MetricsProto
-import com.android.settings.R
-import com.android.settings.SettingsPreferenceFragment
+ import android.content.Context;
+ import android.content.ContentResolver;
+ import android.content.Intent;
+ import android.content.pm.UserInfo;
+ import android.os.Bundle;
+ import android.os.UserHandle;
+ import android.os.UserManager;
+ import androidx.preference.Preference;
+ import androidx.preference.PreferenceCategory;
+ import androidx.preference.PreferenceScreen;
+ import androidx.preference.Preference.OnPreferenceChangeListener;
+ import android.provider.Settings;
+ import com.android.settings.R;
+ import androidx.annotation.NonNull;
 
-class Miscellaneous : SettingsPreferenceFragment(), OnPreferenceChangeListener {
+ import com.android.internal.logging.nano.MetricsProto;
+ import com.android.settings.SettingsPreferenceFragment;
+ import android.content.res.Resources;
+ import java.util.Arrays;
+ import java.util.ArrayList;
+ import java.util.List;
 
-    override fun onCreate(icicle: Bundle?) {
-        super.onCreate(icicle)
-        val context: Context = requireContext()
-        val resources: Resources = context.resources
-        addPreferencesFromResource(R.xml.misc_section)
-        val resolver: ContentResolver = requireActivity().contentResolver
-        val prefScreen: PreferenceScreen = preferenceScreen
-    }
+ public class Miscellaneous extends SettingsPreferenceFragment implements OnPreferenceChangeListener {
 
-    override fun onPreferenceChange(preference: Preference, newValue: Any?): Boolean {
-        return false
-    }
+     @Override
+     public void onCreate(Bundle icicle) {
+         super.onCreate(icicle);
+         final Context context = getContext();
+         final Resources resources = context.getResources();
+         addPreferencesFromResource(R.xml.misc_section);
+         final ContentResolver resolver = getActivity().getContentResolver();
+         final PreferenceScreen prefScreen = getPreferenceScreen();
+     }
 
-    override fun getMetricsCategory(): Int {
-        return MetricsProto.MetricsEvent.RYUUI
-    }
-}
+     @Override
+     public boolean onPreferenceChange(Preference preference, Object newValue) {
+         return false;
+     }
+
+     @Override
+     public int getMetricsCategory() {
+         return MetricsProto.MetricsEvent.ORION;
+     }
+ }
