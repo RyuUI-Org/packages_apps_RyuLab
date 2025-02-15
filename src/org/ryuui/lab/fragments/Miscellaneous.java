@@ -58,6 +58,6 @@
 
      @Override
      public int getMetricsCategory() {
-         return MetricsProto.MetricsEvent.ORION;
+         return MetricsProto.MetricsEvent.RYUUI;
      }
  }
